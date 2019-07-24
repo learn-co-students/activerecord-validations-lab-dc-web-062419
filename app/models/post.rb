@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   validate :clickbait
 
   def clickbait
-    if [/Won't Believe/, /Secret/, /Top [0-9]/, /Guess/].none? { |s| s.match title }
+    if [/Won't Believe/, /Secret/, /Top [0-9]/, /Guess/].none? {|s| s.match(title)}
       errors.add(:title, "needs clickbait headline")
     end
   end
